@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>复习巩固——游戏——元素周期表的盛宴</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      html {
+        background-image: url("res/gmbg.jpg");
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        /* background-position: center center; */
+        /* overflow: auto; */
+        /* margin-bottom: 0; */
+        /* padding-bottom: 0; */
+    }
+       /* 包含ul的div */
+      .image_list{
+	    width:100%;
+      	height:100%;
+      }
+      ul{
+	    list-style-type:none;
+      	margin:0px auto;
+      	padding:0px;
+      	width:80%;
+      	height:80%;
+      }
+      li{
+	    width:120px;
+      	height:120px;
+      	border-radius:25px;
+      	background-repeat:no-repeat;
+      	background-size:auto 100%;
+      	opacity:0.7;
+      }
+       li:hover{
+	    opacity:1;
+      }
+      /* 关闭按扭 */
+      .close_btn{
+	    position:absolute;
+      	right:30px;
+      	top:30px;
+      	height: 20px;
+      	width: 20px;
+      	cursor:pointer;
+      	display:none;
+      }
+      
+      /* 鼠标点击时，切换的样式 */
+      .active{
+	    width:600px;
+	    height:600px;
+	    position: absolute;
+	  }
+	  .active .close_btn{
+	    display:block;
+	  }
+	  .hide li:not(.active){
+	    height:0%;
+	    width:0%;
+	    opacity: 0;
+	  }
+    ul{
+			list-style-type: none;
+			}
+			.Title{
+				text-align: center;
+				font-size: 50px;
+				font-weight: 1000;
+				color: white;
+				font-style:"行书";
+			}
+			#right{
+				top: 10%;
+				position: absolute;
+				right:20%;
+			}
+			
+			#choice{
+				width: 20%;
+				height: 20%;
+				text-align: center;
+				align-content: center;
+				font-size: 25px;
+				font-weight: 800;
+				color: white;
+			}
+			.link{
+				font-size: 25px;
+				font-weight: 800;
+			  transform: translate(700px,300px);
+			}
+    }
+ 			#li1{
+ 				transform: translate(0px,0px);
+ 			}
+ 			#li1:hover{
+ 				transform: translate(1000px,240px);;
+ 			}
+ 			#li2{
+ 				transform: translate(0px,0px);
+ 				
+ 			}
+ 			#li2:hover{
+ 				transform: translate(1000px,360px);;
+ 			}
+ 			#li3{
+ 				transform: translate(0px,0px);
+ 				
+ 			}
+ 			#li3:hover{
+ 				transform: translate(1000px,120px);;
+ 			}
+ 			#li4{
+ 				transform: translate(0px,0px);
+ 				
+ 			}
+ 			#li4:hover{
+ 				transform: translate(1000px,-360px);;
+ 			}
+ 			#li5{
+ 				transform: translate(0px,0px);
+ 			}
+ 			#li5:hover{
+ 				transform: translate(1000px,-360px);;
+ 			}
+    
+	  </style>
+    <script type="text/javascript">
+      function init(){
+    	  //初始化li
+    	  for(var i=1;i<=5;i++){
+    		  //为li添加背景图片(操纵background-image样式)
+    		  document.getElementById("li"+i).style.backgroundImage = "url('res/element"+i+".jpg')";
+    		  //为li设置title属性
+      	      document.getElementById("li"+i).title = "点击查看大图";
+    		  //为li添加鼠标击事件(操纵className属性)
+    		  document.getElementById("li"+i).ondblclick = function(){
+    			  this.className = "active";
+    			  document.getElementById("image_ul").className = "hide";
+    			  document.getElementById("choice").className = "hide";
+    		  }
+    		  //移动图片
+    		  //document.getElementById("li"+i).onclick = function(){
+    			  //var x=parseInt(document.getElementById("choice"+i).offsetLeft)+"px";
+    			  //var y=parseInt(document.getElementById("choice"+i).offsetTop)+"px";
+    			  //document.getElementById("li"+i).style.transform="translate(x,y)";
+    		  //}
+    		  
+    	  }
+    	  
+    	  //为关闭按扭添加鼠标点击事件(操纵className属性)
+		  var closeBtnList = document.getElementsByClassName("close_btn");
+		  for(var i=0;i<closeBtnList.length;i++){
+			  closeBtnList[i].onclick= function(e){
+				  e.stopPropagation();//阻止事件冒泡
+				  document.getElementsByClassName("active")[0].className = "";
+				  document.getElementById("image_ul").className = "";
+				  document.getElementById("choice").className = "";
+			  }
+		  }
+      }
+    </script>
+  </head>
+  <body onload="init()">
+      <div class="Title">元素周期表的盛宴</div>
+      
+      <ul id="image_ul">
+        <li id="li1"><img class="close_btn" src="res/close_btn.png" /></li>
+        <li id="li2"><img class="close_btn" src="res/close_btn.png" /></li>
+        <li id="li3"><img class="close_btn" src="res/close_btn.png" /></li>
+        <li id="li4"><img class="close_btn" src="res/close_btn.png" /></li>
+        <li id="li5"><img class="close_btn" src="res/close_btn.png" /></li>
+      </ul>
+    <div id="right">
+		<ul id="choice">
+			<li id="choice1">Ra镭</li>
+			<li id="choice2">Sb锑</li>
+			<li id="choice3">As砷</li>
+			<li id="choice4">Hg汞</li>
+			<li id="choice5">Au金</li>
+		</ul>
+	</div>
+	<div class="link">
+		<a href="games2.html">下一关</a>
+	  <a href="gameInterface1.html">返回</a>
+	</div>
+  </body>
+</html>
+      
+      
